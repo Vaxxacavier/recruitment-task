@@ -34,13 +34,13 @@ class Book(Base):
 
     __tablename__ = "books"
 
-    serial_number: Mapped[str] = mapped_column(
-        String(6), primary_key=True, index=True
-    )
+    serial_number: Mapped[str] = mapped_column(String(6), primary_key=True, index=True)
 
     title: Mapped[str] = mapped_column(String(255), nullable=False)
     author: Mapped[str] = mapped_column(String(255), nullable=False)
 
     is_borrowed: Mapped[bool] = mapped_column(Boolean, default=False, nullable=False)
-    borrowed_at: Mapped[Optional[datetime]] = mapped_column(DateTime(timezone=True), nullable=True)
+    borrowed_at: Mapped[Optional[datetime]] = mapped_column(
+        DateTime(timezone=True), nullable=True
+    )
     borrowed_by: Mapped[Optional[str]] = mapped_column(String(6), nullable=True)

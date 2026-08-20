@@ -43,7 +43,9 @@ def delete_book(db: Session, serial_number: str) -> Optional[Book]:
     return book
 
 
-def update_book_status(db: Session, serial_number: str, payload: BorrowUpdate) -> Optional[Book]:
+def update_book_status(
+    db: Session, serial_number: str, payload: BorrowUpdate
+) -> Optional[Book]:
     book = get_book_by_serial(db, serial_number)
     if book is None:
         return None

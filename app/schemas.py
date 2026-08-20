@@ -21,7 +21,9 @@ class BookCreate(BaseModel):
         examples=["000001"],
     )
     title: str = Field(..., min_length=1, max_length=255, description="Book title")
-    author: str = Field(..., min_length=1, max_length=255, description="Author full name")
+    author: str = Field(
+        ..., min_length=1, max_length=255, description="Author full name"
+    )
 
     @field_validator("serial_number")
     @classmethod
@@ -60,7 +62,7 @@ class BorrowUpdate(BaseModel):
             return _validate_six_digit(v, "borrower_card")
         return v
 
-    def model_post_init(self, __context) -> None: # noqa: ANN001
+    def model_post_init(self, __context) -> None:  # noqa: ANN001
         if self.is_borrowed and not self.borrower_card:
             raise ValueError("borrower_card is required when is_borrowed is True")
         if not self.is_borrowed and self.borrower_card:
