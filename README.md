@@ -42,7 +42,7 @@ It allows library staff to manage the book catalogue and track borrow status. Ru
 
 ```bash
 git clone <repo-url>
-cd library_project
+cd recruitment-task
 docker compose up
 ```
 
@@ -199,7 +199,7 @@ Table: books
 ## Project Structure
 
 ```
-library_project/
+recruitment-task/
 ├── app/
 │   ├── __init__.py
 │   ├── config.py        ← environment variables (pydantic-settings)
